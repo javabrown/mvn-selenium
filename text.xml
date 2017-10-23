@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doConfirmCreditCardPaymentResponse xmlns="http://soap.ws.web.raileurope.com">
+   <return>
+      <header xmlns="soap.ws.web.raileurope.com">
+         <errors>
+            <errorCode>ERROR_DURING_FINALIZE</errorCode>
+            <description>Error in getting/processing fares from InformacionTrenes</description>
+         </errors>
+         <serverTimeStamp>Fri Oct 13 22:15:53 CEST 2017</serverTimeStamp>
+      </header>
+      <confirmCreditCardPaymentContent xmlns="soap.ws.web.raileurope.com">
+         <paymentContent>
+            <bookingId>43278349</bookingId>
+            <bookingStatus>HOLD_STATUS</bookingStatus>
+            <paymentConfirmation>true</paymentConfirmation>
+            <amountPaid>
+               <currencyCode>USD</currencyCode>
+               <amount>264.00</amount>
+            </amountPaid>
+            <amountDue>
+               <currencyCode />
+               <amount />
+            </amountDue>
+            <creditCardPayment>
+               <creditCards>
+                  <paymentId>1</paymentId>
+                  <isForAgencyFeePayment>false</isForAgencyFeePayment>
+                  <sequenceNumber />
+                  <cardType>Visa</cardType>
+                  <partialCardNumber>**** ***** *****1111</partialCardNumber>
+                  <amount>
+                     <currencyCode>USD</currencyCode>
+                     <amount>264.00</amount>
+                  </amount>
+                  <isAuthorized>true</isAuthorized>
+                  <globalCollect3DSecureItem>
+                     <formAction />
+                     <formMethod />
+                     <returnMac />
+                     <returnRef />
+                     <paymentTransactionID />
+                  </globalCollect3DSecureItem>
+                  <cardHolderName>John Jones</cardHolderName>
+                  <creditCardFee>
+                     <currencyCode />
+                     <amount />
+                  </creditCardFee>
+                  <street>123 main st</street>
+                  <zipCode>10708</zipCode>
+               </creditCards>
+            </creditCardPayment>
+            <attributes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1" />
+         </paymentContent>
+      </confirmCreditCardPaymentContent>
+   </return>
+</doConfirmCreditCardPaymentResponse>

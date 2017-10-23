@@ -1,0 +1,165 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+      
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.javabrown</groupId>
+        <artifactId>poc</artifactId>
+        <version>0.1</version>
+        <packaging>jar</packaging>
+
+		
+		<dependencies>			
+				<dependency>				
+					 <groupId>junit</groupId>								
+					 <artifactId>junit</artifactId>								
+					 <version>3.8.1</version>								
+					 <scope>test</scope>								
+				</dependency>				
+				<dependency>				
+					<groupId>org.seleniumhq.selenium</groupId>								
+					<artifactId>selenium-java</artifactId>								
+					<version>3.6.0</version>								
+				</dependency>				
+				<dependency>				
+					<groupId>org.testng</groupId>								
+					<artifactId>testng</artifactId>								
+					<version>6.11</version>								
+					<scope>test</scope>							  			
+			   </dependency>				
+		</dependencies>	
+
+<profiles>
+    <profile>
+      <id>myProfile</id>
+      <build>
+        <finalName>name</finalName>
+        <resources>
+          <resource>
+            <directory>${basedir}/resources/drivers</directory>
+            <filtering>false</filtering>
+            <includes>
+              <include>file.txt</include>
+              <include>file2.xml</include>
+            </includes>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+  </profiles>
+		  
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+ <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+ 
+
+		  <build>
+
+			    <resources>
+					  <resource>
+							<directory>${basedir}/resources/drivers</directory>
+							<includes>
+							  <include>chromedriver.exe</include>
+							  <include>geckodriver.exe</include>
+							  <include>IEDriverServer.exe</include>
+							</includes>
+					  </resource>		  
+			    </resources>	  
+		  
+				<plugins>
+					   
+					<!-- plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy-dependencies</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>
+										${project.build.directory}/libs
+									</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+									<classpathPrefix>libs/</classpathPrefix>
+									<mainClass>
+										com.javabrown.app.App
+									</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						  <artifactId>maven-assembly-plugin</artifactId>
+						  <configuration>
+							<archive>
+							  <manifest>
+								<mainClass>com.javabrown.app.App</mainClass>
+							  </manifest>
+							</archive>
+							<descriptorRefs>
+							  <descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+							
+							<dependencies>			
+									<dependency>				
+										 <groupId>junit</groupId>								
+										 <artifactId>junit</artifactId>								
+										 <version>3.8.1</version>								
+										 <scope>test</scope>								
+									</dependency>				
+									<dependency>				
+										<groupId>org.seleniumhq.selenium</groupId>								
+										<artifactId>selenium-java</artifactId>								
+										<version>2.45.0</version>								
+									</dependency>				
+									<dependency>				
+										<groupId>org.testng</groupId>								
+										<artifactId>testng</artifactId>								
+										<version>6.8</version>								
+										<scope>test</scope>							  			
+								   </dependency>				
+							</dependencies>					
+						  </configuration>				  
+					</plugin -->
+					
+					<!-- Maven Shade Plugin -->
+					<plugin>
+						  <groupId>org.apache.maven.plugins</groupId>
+						  <artifactId>maven-shade-plugin</artifactId>
+						  <version>2.3</version>
+						  <executions>
+								 <!-- Run shade goal on package phase -->
+								<execution>
+									<phase>package</phase>
+									<goals>
+										<goal>shade</goal>
+									</goals>
+									<configuration>
+									  <transformers>
+										<!-- add Main-Class to manifest file -->
+											<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+												<mainClass>com.javabrown.app.App</mainClass>
+											</transformer>
+									  </transformers>
+									</configuration>
+								  </execution>
+						  </executions>
+					</plugin>			
+			
+				</plugins>
+		  </build>
+  
+</project>
