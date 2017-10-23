@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
 import java.util.Arrays;
 import com.javabrown.app.utils.StringUtils;
 import static com.javabrown.app.KeysI.*;
@@ -19,8 +21,8 @@ public class TestMain {
 		WebDriver driver = null;
 		
         if(browserName.equalsIgnoreCase(BROWSER_IE)) {
-           System.setProperty("webdriver.gecko.driver","./resources/drivers/geckodriver.exe");
-           driver = new FirefoxDriver();
+           System.setProperty("webdriver.ie.driver","./resources/drivers/IEDriverServer.exe");
+           driver = new InternetExplorerDriver();
         }
         else if(browserName.equalsIgnoreCase(BROWSER_FF)){
            System.setProperty("webdriver.gecko.driver","./resources/drivers/geckodriver.exe");
