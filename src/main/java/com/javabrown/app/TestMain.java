@@ -52,7 +52,7 @@ public class TestMain {
         tagName = _driver.findElement(By.id("email")).getTagName();
         System.out.println(tagName);
         
-        //JUnitCore.main("com.stackoverflow.MyTestSuite");   
+        JUnitCore.runClasses(com.javabrown.app.RkTest.class);
         
         _driver.close();
 		
