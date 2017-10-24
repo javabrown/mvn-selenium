@@ -6,4 +6,5 @@
 classes/
 maven-archiver/
 maven-status/
-
+.idea/
+idea/
