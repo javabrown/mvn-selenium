@@ -6,10 +6,16 @@ import static com.javabrown.app.KeysI.*;
 
 public enum LaunchOption {
   BROWSER("-b", true, new String[]{BROWSER_IE, BROWSER_CH, BROWSER_FF}, 
-      "Browser to be used in Test."), 
-  TESTCASE_LOCATION("-l", false, null, "Path for the Testcases."),
+      "Supported Browsers"), 
+      
+  TESTCASE_PATH("-p", false, null, "Testcase directory path"),
+  
+  DOMAIN("-d", true, new String[] { DOMAIN_OSX, DOMAIN_USX}, "Domain Names"),
+  
+  LANGUAGE("-l", true, new String[] { LANGUAGE_EN, LANGUAGE_ES}, "Supported Languages"),
+  
   NONE("", false, null, "No option supplied in CLI."), 
-  ;
+  ;//LANGUAGE_ES/
  
   private String _name;
   private boolean _hasDefinedParamValues;

@@ -18,7 +18,7 @@ public class App {
     
     if(!cli.hasError()) {
       System.out.printf("Running test in Browser - %s\n", cli.getBrowserName());
-      TestMain test = new TestMain(cli.getBrowserName());
+      TestMain test = new TestMain(cli);
       test.execute();
     }
     else{

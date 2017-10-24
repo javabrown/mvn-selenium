@@ -23,4 +23,10 @@ public interface KeysI {
 	String BROWSER_IE = "IE";
 	String BROWSER_CH = "CH";
 	String BROWSER_FF = "FF";
+	
+	String DOMAIN_OSX = "osx";
+	String DOMAIN_USX = "usx";
+	
+	String LANGUAGE_EN = "en";
+	String LANGUAGE_ES = "es";
 }
